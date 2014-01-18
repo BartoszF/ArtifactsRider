@@ -1,1 +1,2 @@
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\ArtifactsRider\ArtifactsRiderContent\obj\x86\Debug\ArtifactsRiderContent.contentprojResolveAssemblyReference.cache
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\ArtifactsRider\ArtifactsRiderContent\obj\x86\Debug\ArtifactsRiderContent.contentprojResolveAssemblyReference.cache

@@ -14,3 +14,11 @@ E:\programowanie\xna\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\VAPI.cspro
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\VAPI.dll
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\VAPI.pdb
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\bin\x86\Debug\VAPI.dll
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\bin\x86\Debug\VAPI.pdb
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\bin\x86\Debug\FarseerPhysics.dll
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\bin\x86\Debug\FarseerPhysics.pdb
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\VAPI.csprojResolveAssemblyReference.cache
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\VAPI.dll
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\VAPI\obj\x86\Debug\VAPI.pdb

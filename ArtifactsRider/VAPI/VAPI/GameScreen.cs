@@ -14,7 +14,6 @@ namespace VAPI
 {
     public class GameScreen
     {
-
         protected RenderTarget2D RenderTarget;
         protected Game Parent;
         protected Effect Effect;

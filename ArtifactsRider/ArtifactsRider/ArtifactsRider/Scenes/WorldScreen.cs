@@ -15,13 +15,11 @@ namespace ArtifactsRider.Scenes
 {
     class WorldScreen : GameScreen
     {
-        GameWorld World;
 
         public WorldScreen(Game Game)
             : base(Game, GeneralManager.ScreenX, GeneralManager.ScreenY)
         {
-            this.AddGUI(new Button(new Rectangle(100, 100, 100, 100), "", GeneralManager.Textures["Textures/TestTex"], Color.Gray, Color.White, "Fonts/SteamWreck"));
-            World = new GameWorld(this);
+            this.AddGUI(new Button(new Rectangle(200, 100, 100, 100), "", GeneralManager.Textures["Textures/TestTex"], Color.Gray, Color.White, "Fonts/SteamWreck"));
         }
    
     }

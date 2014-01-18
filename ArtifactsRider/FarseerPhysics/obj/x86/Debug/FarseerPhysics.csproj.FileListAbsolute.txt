@@ -10,3 +10,9 @@ E:\programowanie\xna\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\FarseerPhysics.dll
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\FarseerPhysics.pdb
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\FarseerPhysics\bin\x86\Debug\FarseerPhysics.dll
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\FarseerPhysics\bin\x86\Debug\FarseerPhysics.pdb
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\FarseerPhysics.csprojResolveAssemblyReference.cache
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\FarseerPhysics.dll
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\FarseerPhysics\obj\x86\Debug\FarseerPhysics.pdb

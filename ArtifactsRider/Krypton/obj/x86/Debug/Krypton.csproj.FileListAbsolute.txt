@@ -10,3 +10,9 @@ E:\programowanie\xna\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Krypton
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Krypton.dll
 E:\programowanie\xna\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Krypton.pdb
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\Krypton\bin\x86\Debug\Krypton.dll
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\Krypton\bin\x86\Debug\Krypton.pdb
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Krypton.csprojResolveAssemblyReference.cache
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Krypton.dll
+C:\Users\Kebab\Documents\GitHub\ArtifactsRider\ArtifactsRider\Krypton\obj\x86\Debug\Krypton.pdb
