@@ -1,2 +1,2 @@
-Content\Textures\TestTex.xnb
 Content\Fonts\SteamWreck_0.xnb
+Content\Textures\TestTex.xnb
