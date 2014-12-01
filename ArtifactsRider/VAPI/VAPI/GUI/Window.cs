@@ -11,20 +11,28 @@ using Microsoft.Xna.Framework.Media;
 
 namespace VAPI
 {
+    /// <summary>
+    /// Window class
+    /// </summary>
     public class Window : GUIComponent
     {
-        Rectangle Position;
-        public Stack<GUIComponent> GUIComponents;
+        public Stack<GUIComponent> GUIComponents;       /**< Stack of GUIComponents \"Docked\" in window */
         public bool Visible = true;
-        Texture2D BgTex;
+        public Texture2D BgTex;
 
-        public Window(Rectangle Position, Color BgColor)
+        public Window(Rectangle Position, Color col)
         {
             GUIComponents = new Stack<GUIComponent>();
             this.Position = Position;
-            BgTex = new Texture2D(GeneralManager.GDevice, 1, 1);
-            BgTex.SetData<Color>(new[] { BgColor });
+            BgTex = new Texture2D(Renderer.GD, 1, 1);
+            BgTex.SetData<Color>(new[] { col });
+        }
 
+        public Window(Rectangle Position)
+        {
+            GUIComponents = new Stack<GUIComponent>();
+            this.Position = Position;
+            BgTex = GeneralManager.Textures["GUI/windowBg"];
         }
 
         public Window(Rectangle Position, string TextureName)
@@ -34,17 +42,16 @@ namespace VAPI
             this.BgTex = GeneralManager.Textures[TextureName];
         }
 
-        public override void Draw(SpriteBatch SpriteBatch)
+        public override void Draw()
         {
             if (Visible)
             {
-                
-                SpriteBatch.Draw(BgTex, Position, Color.White);
-                
+                Renderer.PostDraw(BgTex, Position);
+                //SpriteBatch.Draw(BgTex, Position, Color.White);
 
                 foreach (GUIComponent G in GUIComponents)
                 {
-                    G.Draw(SpriteBatch);
+                    G.Draw();
                 }
             }
         }
@@ -85,8 +92,21 @@ namespace VAPI
             }
         }
 
+        public void AddGUI(GUIComponent GUI, GUIComponent parent)
+        {
+            if (parent == null)
+                this.GUIComponents.Push(GUI);
+            else
+            {
+                GUI.Position = Helper.AddRectPos(GUI.Position, parent.Position);
+                this.GUIComponents.Push(GUI);
+            }
+        }
+
         public void AddGUI(GUIComponent GUI)
         {
+
+            GUI.Position = Helper.AddRectPos(GUI.Position, this.Position);
             this.GUIComponents.Push(GUI);
         }
     }

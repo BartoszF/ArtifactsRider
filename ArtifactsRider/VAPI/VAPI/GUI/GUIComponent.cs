@@ -11,17 +11,20 @@ using Microsoft.Xna.Framework.Media;
 
 namespace VAPI
 {
+    /// <summary>
+    /// Base GUIComponent class
+    /// </summary>
     public abstract class GUIComponent
     {
+        public bool IsActive = false;       /**< Is it active ? */
+        public Rectangle Position;          /**< Postion */
 
-        public bool IsActive = false;
+        public abstract bool HandleInput(); /**< Method for Handling Input */
 
-        public abstract bool HandleInput();
+        public abstract void Draw();        /**< Main draw loop */
 
-        public abstract void Draw(SpriteBatch SpriteBatch);
+        public abstract void Update(GameTime gameTime);     /**< Main Update loop */
 
-        public abstract void Update(GameTime gameTime);
-
-        public abstract bool CheckActive();
-    }
+        public abstract bool CheckActive(); /**< Check if active */
+    }   
 }

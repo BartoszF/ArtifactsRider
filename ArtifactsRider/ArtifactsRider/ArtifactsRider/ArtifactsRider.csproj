@@ -5,7 +5,7 @@
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ArtifactsRider</RootNamespace>
     <AssemblyName>ArtifactsRider</AssemblyName>
@@ -13,7 +13,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
-    <XnaProfile>Reach</XnaProfile>
+    <XnaProfile>HiDef</XnaProfile>
     <XnaCrossPlatformGroupID>53a3ffd4-7a99-4bef-9d89-52a7c1208df7</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
@@ -58,8 +58,16 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>true</XnaCompressContent>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="irrKlang.NET4, Version=1.0.4534.25937, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\irrKlang.NET4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -75,12 +83,39 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity.cs" />
+    <Compile Include="Generators\CaveGenerator.cs" />
+    <Compile Include="Generators\DungeonGenerator.cs" />
+    <Compile Include="Generators\EmptyMapGenerator.cs" />
+    <Compile Include="Generators\GeneratorBase.cs" />
+    <Compile Include="Items\Armor.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="MapManager\Entities\Key.cs" />
+    <Compile Include="Items\Weapon.cs" />
+    <Compile Include="Items\Weapons\AK47.cs" />
     <Compile Include="MapManager\Chunk.cs" />
+    <Compile Include="MapManager\Entities\Barrel.cs" />
+    <Compile Include="MapManager\Entities\Bullet.cs" />
+    <Compile Include="MapManager\Entities\Chest.cs" />
+    <Compile Include="MapManager\Entities\DoorButton.cs" />
+    <Compile Include="MapManager\Entities\Doors.cs" />
+    <Compile Include="MapManager\Entities\FloorFan.cs" />
+    <Compile Include="MapManager\Entities\RedAlarmLamp.cs" />
+    <Compile Include="MapManager\Entity.cs" />
     <Compile Include="MapManager\Map.cs" />
+    <Compile Include="MapManager\Tile.cs" />
+    <Compile Include="Mobs\Mob.cs" />
+    <Compile Include="Mobs\Player.cs" />
+    <Compile Include="Mobs\Zombie.cs" />
+    <Compile Include="Mobs\ZombieBig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Scenes\CreditsScreen.cs" />
+    <Compile Include="Scenes\IntroScreen.cs" />
+    <Compile Include="Scenes\LoadGameScreen.cs" />
+    <Compile Include="Scenes\NewGameScreen.cs" />
+    <Compile Include="Scenes\OptionsScreen.cs" />
+    <Compile Include="Scenes\SaveGameScreen.cs" />
     <Compile Include="Scenes\WorldScreen.cs" />
     <Compile Include="Scenes\MainMenuScreen.cs" />
   </ItemGroup>
@@ -91,14 +126,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FarseerPhysics\FarseerPhysics.csproj">
-      <Project>{52B29B92-1EAD-4E19-B159-4C526456FA1E}</Project>
-      <Name>FarseerPhysics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Krypton\Krypton.csproj">
-      <Project>{3F80584D-732F-4E8A-9342-E85D0C244983}</Project>
-      <Name>Krypton</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\VAPI\VAPI.csproj">
       <Project>{A89124CA-1780-4ECE-97D6-D9EFE6DAB97F}</Project>
       <Name>VAPI</Name>
@@ -135,6 +162,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

@@ -15,7 +15,6 @@ namespace VAPI
     {
         public Texture2D TexOff;
         public Texture2D TexOn;
-        public Rectangle Position;
 
         public bool State = false;
 
@@ -51,16 +50,18 @@ namespace VAPI
             return false;
         }
 
-        public override void Draw(SpriteBatch SpriteBatch)
+        public override void Draw()
         {
 
             if (!State)
             {
-                SpriteBatch.Draw(TexOff, Position, Color.White);
+                Renderer.PostDraw(TexOff, Position);
+                //SpriteBatch.Draw(TexOff, Position, Color.White);
             }
             else
             {
-                SpriteBatch.Draw(TexOn, Position, Color.White);
+                Renderer.PostDraw(TexOn, Position);
+                //SpriteBatch.Draw(TexOn, Position, Color.White);
             }
         }
     }

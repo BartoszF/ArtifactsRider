@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactsRider", "ArtifactsRider\ArtifactsRider\ArtifactsRider.csproj", "{2DCDE441-1E5B-4A22-A83B-02CF7AF0808C}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "ArtifactsRiderContent", "ArtifactsRider\ArtifactsRiderContent\ArtifactsRiderContent.contentproj", "{054CEC9A-FF54-42CA-B886-D35F034ABFE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactsRiderContent", "ArtifactsRider\ArtifactsRiderContent\ArtifactsRiderContent.contentproj", "{054CEC9A-FF54-42CA-B886-D35F034ABFE6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAPI", "VAPI\VAPI.csproj", "{A89124CA-1780-4ECE-97D6-D9EFE6DAB97F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krypton", "Krypton\Krypton.csproj", "{3F80584D-732F-4E8A-9342-E85D0C244983}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarseerPhysics", "FarseerPhysics\FarseerPhysics.csproj", "{52B29B92-1EAD-4E19-B159-4C526456FA1E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B37CF1B3-D77B-4640-88D5-193FD4C26F4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +25,6 @@ Global
 		{A89124CA-1780-4ECE-97D6-D9EFE6DAB97F}.Debug|x86.Build.0 = Debug|x86
 		{A89124CA-1780-4ECE-97D6-D9EFE6DAB97F}.Release|x86.ActiveCfg = Release|x86
 		{A89124CA-1780-4ECE-97D6-D9EFE6DAB97F}.Release|x86.Build.0 = Release|x86
-		{3F80584D-732F-4E8A-9342-E85D0C244983}.Debug|x86.ActiveCfg = Debug|x86
-		{3F80584D-732F-4E8A-9342-E85D0C244983}.Debug|x86.Build.0 = Debug|x86
-		{3F80584D-732F-4E8A-9342-E85D0C244983}.Release|x86.ActiveCfg = Release|x86
-		{3F80584D-732F-4E8A-9342-E85D0C244983}.Release|x86.Build.0 = Release|x86
-		{52B29B92-1EAD-4E19-B159-4C526456FA1E}.Debug|x86.ActiveCfg = Debug|x86
-		{52B29B92-1EAD-4E19-B159-4C526456FA1E}.Debug|x86.Build.0 = Debug|x86
-		{52B29B92-1EAD-4E19-B159-4C526456FA1E}.Release|x86.ActiveCfg = Release|x86
-		{52B29B92-1EAD-4E19-B159-4C526456FA1E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,23 +8,24 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using VAPI.RenderEffects;
 
 namespace VAPI
 {
     public class Button:GUIComponent
     {
-        public Rectangle Position;
         public string Text;
         public Texture2D Background;
         public Color ButtonColor;
         public Color ActiveColor;
-        public FontRenderer Font;
+        public SpriteFont Font;
+        public Vector2 TextOffset;
 
         public delegate void ButtonAction();
 
         public ButtonAction Action;
 
-        public Button(Rectangle Position, string Text, Texture2D Background, Color ButtonColor, Color ActiveColor, string Font)
+        public Button(Rectangle Position, string Text, Texture2D Background, Color ButtonColor, Color ActiveColor, SpriteFont Font)
         {
             this.Position = Position;
             this.Text = Text;
@@ -33,32 +34,29 @@ namespace VAPI
             this.ActiveColor = ActiveColor;
             if (Font != null)
             {
-                this.Font = GeneralManager.Fonts[Font];
+                this.Font = Font;
             }
         }
 
-
-        public override void Draw(SpriteBatch SpriteBatch)
+        public override void Draw()
         {
             // TODO Calc Scale
             //=======
             if (!IsActive)
             {
-                SpriteBatch.Draw(Background, Position, ButtonColor);
+                Renderer.PostDraw(Background, Position, ButtonColor);
                 if (Font != null)
                 {
-                    Font.DrawText(SpriteBatch, Position, Text, Color.Gray);
+                    Renderer.PostDrawFont(Font, Helper.AddRectPos(Position, TextOffset), Text, ButtonColor);
                 }
-                //SpriteBatch.DrawString(Font, Text, Helper.GetTopLeftFromRect(Position), ButtonColor, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0.5f);
             }
             else
             {
-                SpriteBatch.Draw(Background, Position, ActiveColor);
+                Renderer.PostDraw(Background, Position, ActiveColor);
                 if (Font != null)
                 {
-                    Font.DrawText(SpriteBatch, Position, Text, Color.Gray);
+                    Renderer.PostDrawFont(Font, Helper.AddRectPos(Position, TextOffset), Text, ActiveColor);
                 }
-                //SpriteBatch.DrawString(Font, Text, Helper.GetTopLeftFromRect(Position), ActiveColor, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0.5f);
             
             }
         }

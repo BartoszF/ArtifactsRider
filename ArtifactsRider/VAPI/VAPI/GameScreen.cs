@@ -8,40 +8,35 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using VAPI.Particle;
+using VAPI.RenderEffects.SceneSwitchEffects;
 
 namespace VAPI
 {
+    /// <summary>
+    /// Base class for GameScreen
+    /// </summary>
     public class GameScreen
     {
-        protected RenderTarget2D RenderTarget;
-        protected Game Parent;
-        protected Effect Effect;
-
-        protected float GoingOut = 0;
-        protected float GoingIn = 5;
+        protected Game Parent;          /**< Reference to main Instance */
 
         public LinkedList<GUIComponent> GUIComponents;
-        public List<ParticleWorld2D> ParticleWorlds;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="Game">Reference to main Instance</param>
+        /// <param name="SizeX">Width of screen</param>
+        /// <param name="SizeY">Height of screen</param>
         public GameScreen(Game Game, int SizeX, int SizeY)
         {
             GUIComponents = new LinkedList<GUIComponent>();
-            ParticleWorlds = new List<ParticleWorld2D>();
             this.Parent = Game;
-            RenderTarget = new RenderTarget2D(Parent.GraphicsDevice, SizeX, SizeY );//new RenderTarget2D(Parent.GraphicsDevice, SizeX, SizeY, 1, SurfaceFormat.Color);
         }
 
-        public GameScreen(Game Game, int SizeX, int SizeY, Effect Effect)
-        {
-            GUIComponents = new LinkedList<GUIComponent>();
-            ParticleWorlds = new List<ParticleWorld2D>();
-            this.Parent = Game;
-            RenderTarget = new RenderTarget2D(Parent.GraphicsDevice, SizeX, SizeY);//, 1, SurfaceFormat.Color);
-            this.Effect = Effect;
-        }
-
-
+        /// <summary>
+        /// Base method for handling Input of GUI
+        /// </summary>
+        /// <returns>True, if something was clicked</returns>
         public virtual bool HandleInput()
         {
             foreach (GUIComponent G in GUIComponents)
@@ -51,26 +46,13 @@ namespace VAPI
                     return true;
                 }
             }
-            return false;
-            /*
-            if (GeneralManager.CheckKeyEdge(Keys.Down))
-            {
-                int i = 0;
-                foreach (GUIComponent G in GUIComponents)
-                {
-                    if (G.IsActive)
-                    {
-                        G.IsActive = false;
-                        if (i + 1 == GUIComponents.Count)
-                        {
-                            
-                        }
-                    }
-                    i++;
-                }
-            }*/
+            return false; 
         }
 
+        /// <summary>
+        /// Base method for Update loop
+        /// </summary>
+        /// <param name="GameTime">Time that passed since last Update loop</param>
         public virtual void Update(GameTime GameTime)
         {
             foreach (GUIComponent G in GUIComponents)
@@ -86,95 +68,61 @@ namespace VAPI
                     break;
                 }
             }
-
-            foreach (ParticleWorld2D PW in ParticleWorlds)
-            {
-                PW.Update(GameTime);
-            }
         }
 
-        public virtual void Draw(SpriteBatch SpriteBatch, GameTime GameTime)
+        /// <summary>
+        /// Base method for Drawing
+        /// </summary>
+        /// <param name="GameTime">Time that passed since last Update loop</param>
+        public virtual void Draw(GameTime GameTime)
         {
-
+            Parent.GraphicsDevice.Clear(Color.Black);
             int i = GUIComponents.Count -1;
             List<GUIComponent> GC = GUIComponents.ToList<GUIComponent>();
 
             foreach (GUIComponent G in GUIComponents)
             {
-                GC[i].Draw(SpriteBatch);
+                GC[i].Draw();
                 
                 i--;
             }
-
-            foreach (ParticleWorld2D PW in ParticleWorlds)
-            {
-                PW.Draw(SpriteBatch, GameTime);
-            }
-            
         }
 
+        /// <summary>
+        /// Base method for EndDraw
+        /// </summary>
+        /// <param name="GameTime">Time that passed since last Update loop</param>
+        public virtual void EndDraw(GameTime GameTime)
+        {
+            // must draw only on spritebatch, do not use renderer!!! (wolololo)
+        }
+
+        /// <summary>
+        /// Base method for adding GUI element
+        /// </summary>
+        /// <param name="GUI">Component, that we want to add.</param>
         public void AddGUI(GUIComponent GUI)
         {
             this.GUIComponents.AddFirst(GUI);
         }
 
+        /// <summary>
+        /// Base method for removing GUI element
+        /// </summary>
+        /// <param name="GUI">Component, that we want to remove</param>
         public void RemoveGUI(GUIComponent GUI)
         {
             GUIComponents.Remove(GUI);
         }
 
-        public void BeginDraw(SpriteBatch SpriteBatch, GameTime GameTime)
-        {
-
-            Parent.GraphicsDevice.SetRenderTarget(RenderTarget);
-            Parent.GraphicsDevice.Clear(Color.Black);
-
-            SpriteBatch.Begin();//SpriteBlendMode.AlphaBlend);
-            //SpriteBatch.Begin();
-        }
-
-
-        public virtual void EndDraw(SpriteBatch SpriteBatch, GameTime GameTime)
-        {
-
-            SpriteBatch.End();
-            Parent.GraphicsDevice.SetRenderTarget(null);
-
-            //Color[] TexData = new Color[RenderTarget.Width * RenderTarget.Height];
-            //RenderTexture = new Texture2D(Parent.GraphicsDevice, RenderTarget.Width, RenderTarget.Height);
-            //RenderTarget.GetData<Color>(TexData); ;// GetTexture();
-            //RenderTexture.SetData<Color>(TexData);
-            Parent.GraphicsDevice.Clear(Color.Black);
-
-            SpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            if (Effect != null)
-            {
-                //Effect.Begin();
-                foreach (EffectPass EP in Effect.CurrentTechnique.Passes)
-                {
-                    EP.Apply();// Begin();
-                }
-            }
-
-            SpriteBatch.Draw(RenderTarget, new Rectangle(0,0, GeneralManager.ScreenX, GeneralManager.ScreenY), Color.White);
-
-            SpriteBatch.End();
-
-            if (Effect != null)
-            {
-
-                foreach (EffectPass EP in Effect.CurrentTechnique.Passes)
-                {
-                    //EP.End();
-                }
-                //Effect.End();
-            }
-        }
-
+        /// <summary>
+        /// Base method for switching to scene
+        /// </summary>
+        /// <param name="Screen">GameScreen that we want to switch to.</param>
         public void SwitchTo(GameScreen Screen)
         {
+            
             GeneralManager.CurrentScreen = Screen;
-        }
-        
+        }       
     }
 }

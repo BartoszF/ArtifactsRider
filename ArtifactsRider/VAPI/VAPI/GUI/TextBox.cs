@@ -13,23 +13,22 @@ namespace VAPI
 {
     public class TextBox : GUIComponent
     {
-        public TextBox(Rectangle Position, string BgTexName, string FontName)
+        public TextBox(Rectangle Position, string BgTexName, SpriteFont Font)
         {
             this.Position = Position;
             this.BgTex = GeneralManager.Textures[BgTexName];
-            this.Font = GeneralManager.Fonts[FontName];
+            this.Font = Font;
 
 
             FocusedColor = Color.White;
             UnfocusedColor = Color.White;
         }
 
-        public Rectangle Position;
         public string Text = "";
         Color FocusedColor;
         Color UnfocusedColor;
         Texture2D BgTex;
-        FontRenderer Font;
+        SpriteFont Font;
         bool Enabled;
 
         public void SetColors(Color Focused, Color Unfocused)
@@ -79,17 +78,21 @@ namespace VAPI
             return false;
         }
 
-        public override void Draw(SpriteBatch SpriteBatch)
+        public override void Draw()
         {
             if (Enabled)
             {
-                SpriteBatch.Draw(BgTex, Position, FocusedColor);
-                Font.DrawText(SpriteBatch, Position, Text, FocusedColor);
+                //SpriteBatch.Draw(BgTex, Position, FocusedColor);
+                Renderer.PostDraw(BgTex, Position, FocusedColor);
+                Renderer.PostDrawFont(Font, Position, Text, FocusedColor);
+                //Font.DrawText(SpriteBatch, Position, Text, FocusedColor);
             }
             else
             {
-                SpriteBatch.Draw(BgTex, Position, UnfocusedColor);
-                Font.DrawText(SpriteBatch, Position, Text, UnfocusedColor);
+                //SpriteBatch.Draw(BgTex, Position, UnfocusedColor);
+                Renderer.PostDraw(BgTex, Position, UnfocusedColor);
+                Renderer.PostDrawFont(Font, Position, Text, UnfocusedColor);
+                //Font.DrawText(SpriteBatch, Position, Text, UnfocusedColor);
                     
             }
         }
